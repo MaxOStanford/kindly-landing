@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindly — Gifting that always lands.</title>
+<meta name="description" content="Kindly remembers the people. Tracks the occasions. Finds the perfect gift. Join the waitlist at buykindly.co.uk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMCCQM8V8X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMCCQM8V8X');
+</script>
+
+
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  color-scheme: light;
+  --berry:       #7B3FA0;
+  --berry-deep:  #2A1040;
+  --berry-mid:   #9B5FC0;
+  --berry-light: #B07FD0;
+  --lilac:       #E8D4F8;
+  --lilac-light: #F4ECFC;
+  --accent:      #3DAEE0;
+  --accent-deep: #1B8ABF;
+  --accent-soft: #D6EFFA;
+  --mint:        #AAF9F2;
+  --mint-deep:   #1DBFB4;
+  --cream:       #FFFAF2;
+  --cream-dark:  #F2EAD8;
+  --text:        #2A1040;
+  --text-mid:    #6B4F80;
+  --text-soft:   #9B85AA;
+  --white:       #FFFFFF;
+}
+
+html { scroll-behavior: smooth; background-color: #FFFAF2; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --berry:       #7B3FA0;
+    --berry-deep:  #2A1040;
+    --berry-mid:   #9B5FC0;
+    --berry-light: #B07FD0;
+    --lilac:       #E8D4F8;
+    --lilac-light: #F4ECFC;
+    --accent:      #3DAEE0;
+    --accent-deep: #1B8ABF;
+    --accent-soft: #D6EFFA;
+    --mint:        #AAF9F2;
+    --mint-deep:   #1DBFB4;
+    --cream:       #FFFAF2;
+    --cream-dark:  #F2EAD8;
+    --text:        #2A1040;
+    --text-mid:    #6B4F80;
+    --text-soft:   #9B85AA;
+    --white:       #FFFFFF;
+  }
+  html, body {
+    background-color: #FFFAF2 !important;
+    color: #2A1040 !important;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,250,242,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(123,63,160,0.09);
+}
+
+.nav-wordmark {
+  font-family: 'Lora', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.nav-kind { color: var(--accent); }
+.nav-ly   { color: var(--berry); }
+
+.nav-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--mint);
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(88px, 10vh, 140px) 24px clamp(60px, 8vh, 100px);
+  position: relative;
+  overflow: hidden;
+}
+
+.blob-tr {
+  position: absolute;
+  top: -140px; right: -180px;
+  width: 580px; height: 580px;
+  background: radial-gradient(circle, rgba(61,174,224,0.13) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-bl {
+  position: absolute;
+  bottom: -100px; left: -140px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(232,212,248,0.32) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  max-width: 780px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--lilac);
+  color: var(--berry);
+  border-radius: 100px;
+  padding: 7px 18px;
+  font-size: 0.77rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s ease both 0.1s;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--berry);
+  border-radius: 50%;
+}
+
+h1.hero-headline {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--berry-deep);
+  margin-bottom: 36px;
+  animation: fadeUp 0.6s ease both 0.2s;
+}
+
+h1.hero-headline em {
+  font-style: italic;
+  color: var(--berry);
+}
+
+.hero-pain {
+  margin: 0 auto 24px;
+  animation: fadeUp 0.6s ease both 0.3s;
+}
+
+.hero-pain p {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--berry);
+  line-height: 1.5;
+  margin: 0 0 4px;
+}
+
+.hero-pain-para {
+  font-family: 'Lora', serif;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 400;
+  color: var(--berry);
+  line-height: 1.6;
+  margin: 0 auto 20px;
+  max-width: 640px;
+  animation: fadeUp 0.6s ease both 0.3s;
+}
+
+.hero-solution {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  font-style: normal;
+  color: var(--berry-deep);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+  font-weight: 500;
+  animation: fadeUp 0.6s ease both 0.4s;
+}
+
+.hero-solution em {
+  font-style: italic;
+  color: var(--berry-deep);
+}
+
+.hero-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 12px;
+  max-width: 520px;
+  animation: fadeUp 0.6s ease both 0.45s;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1.5px solid var(--lilac);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.01em;
+}
+
+.hero-pill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mint-deep);
+  flex-shrink: 0;
+}
+
+.signup-wrapper {
+  animation: fadeUp 0.6s ease both 0.5s;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(123,63,160,0.10);
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 360px;
+  margin: 0 auto 14px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--lilac);
+  background: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.email-input::placeholder { color: var(--text-soft); }
+
+.email-input:focus {
+  border-color: var(--berry-mid);
+  box-shadow: 0 0 0 3px rgba(123,63,160,0.11);
+}
+
+.submit-btn {
+  width: auto;
+  min-width: 200px;
+  background: var(--berry);
+  color: var(--white);
+  border: none;
+  border-radius: 100px;
+  padding: 14px 40px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: var(--berry-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(123,63,160,0.32);
+}
+
+.privacy-note {
+  font-size: 0.74rem;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Hidden Mailchimp honeypot field */
+.mc-hidden { position: absolute; left: -5000px; }
+
+#step-2 {
+  display: none;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+#step-2.show {
+  display: block;
+  animation: fadeUp 0.45s ease both;
+}
+
+.step2-thanks {
+  font-family: 'Lora', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--berry-deep);
+  margin-bottom: 6px;
+}
+
+.step2-sub {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.step2-sub strong { color: var(--berry); font-weight: 600; }
+
+.q-label {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid var(--lilac);
+  border-radius: 13px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-align: left;
+  transition: all 0.16s ease;
+}
+
+.opt:hover {
+  border-color: var(--berry-mid);
+  transform: translateX(3px);
+  background: var(--lilac-light);
+}
+
+.opt.selected {
+  border-color: var(--berry);
+  background: var(--lilac-light);
+}
+
+.opt.selected .opt-icon { background: var(--berry); }
+
+.opt-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--lilac);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: background 0.16s ease;
+}
+
+.opt-text strong {
+  display: block;
+  font-weight: 500;
+  font-size: 0.91rem;
+  color: var(--text);
+}
+
+.opt-text span {
+  font-size: 0.76rem;
+  color: var(--text-soft);
+}
+
+.submit-validation {
+  width: 100%;
+  padding: 14px;
+  background: var(--mint);
+  color: var(--berry-deep);
+  border: none;
+  border-radius: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-validation:hover {
+  background: var(--mint-deep);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29,191,180,0.28);
+}
+
+.skip {
+  display: block;
+  text-align: center;
+  margin-top: 11px;
+  font-size: 0.76rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.skip:hover { color: var(--text-mid); }
+
+#step-3 {
+  display: none;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+#step-3.show {
+  display: block;
+  animation: fadeUp 0.45s ease both;
+}
+
+.confirm-card {
+  background: var(--white);
+  border-radius: 22px;
+  padding: 36px 30px;
+  border: 1.5px solid var(--lilac);
+  box-shadow: 0 8px 40px rgba(123,63,160,0.09);
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 62px; height: 62px;
+  background: var(--mint);
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 1.7rem;
+}
+
+.confirm-title {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--berry-deep);
+  margin-bottom: 10px;
+}
+
+.confirm-body {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.access-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--berry), var(--berry-mid));
+  color: var(--white);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(123,63,160,0.28);
+}
+
+.section-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(61,174,224,0.22);
+}
+
+.how-section {
+  padding: 72px 24px 88px;
+  background: var(--berry-deep);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.how-blob-tr {
+  position: absolute;
+  top: -180px; right: -180px;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, rgba(123,63,160,0.38) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.how-blob-bl {
+  position: absolute;
+  bottom: -120px; left: -80px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(61,174,224,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.how-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.how-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.how-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(61,174,224,0.22);
+}
+
+.how-heading {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.22;
+  margin-bottom: 48px;
+  max-width: 480px;
+}
+
+.how-heading em { font-style: italic; color: var(--accent); }
+
+
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 700px) {
+  .steps { grid-template-columns: 1fr; }
+}
+
+.step {
+  padding: 30px 26px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.22s ease;
+  opacity: 0;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  align-content: start;
+}
+
+.step:first-child { border-radius: 17px 0 0 17px; }
+.step:last-child  { border-radius: 0 17px 17px 0; }
+.step:hover { background: rgba(255,255,255,0.075); }
+
+.step-num {
+  font-family: 'Lora', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.09);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.step-pill {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 6px;
+  padding: 2px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  align-self: start;
+}
+
+.step-title {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  min-height: 2.8em;
+}
+
+.step-body {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.65;
+}
+
+.relatable-section {
+  padding: 88px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.relatable-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.relatable-heading {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+  font-weight: 500;
+  color: var(--berry-deep);
+  line-height: 1.28;
+  margin-bottom: 48px;
+}
+
+.relatable-heading em { font-style: italic; color: var(--berry); }
+
+.relatable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 13px;
+  margin-bottom: 52px;
+  text-align: left;
+}
+
+.rel-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 17px 16px;
+  background: var(--white);
+  border-radius: 13px;
+  border: 1.5px solid var(--lilac-light);
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.55;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.rel-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(61,174,224,0.10);
+}
+
+.rel-icon {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bottom-cta {
+  padding: 88px 24px 60px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-blob {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(61,174,224,0.12) 0%, rgba(232,212,248,0.3) 50%, transparent 75%);
+  pointer-events: none;
+}
+
+.bottom-inner {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.bottom-heading {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.9rem, 4.8vw, 3rem);
+  font-weight: 500;
+  color: var(--berry-deep);
+  line-height: 1.18;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.bottom-heading em { font-style: italic; color: var(--berry); }
+
+.bottom-sub {
+  font-size: 0.98rem;
+  color: var(--text-mid);
+  margin-bottom: 36px;
+  line-height: 1.68;
+}
+
+.site-footer-bar {
+  width: 100%;
+  max-width: 580px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(123,63,160,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer-mark {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer-copy {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.site-footer-links { display: flex; gap: 20px; }
+.site-footer-links a {
+  font-size: 0.74rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-footer-links a:hover { color: var(--berry); }
+
+.research-nugget {
+  max-width: 440px;
+  margin: 22px auto 0;
+  padding: 20px 24px;
+  background: var(--lilac-light);
+  border: 1.5px solid var(--lilac);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.nugget-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--berry);
+  margin-bottom: 10px;
+}
+
+.nugget-text {
+  font-family: 'Lora', serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--berry-deep);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.nugget-source {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  letter-spacing: 0.02em;
+}
+
+.hidden { display: none !important; }
+
+.hero-origin {
+  margin-top: 16px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  border: 1px solid rgba(61,174,224,0.25);
+  border-radius: 100px;
+  display: inline-block;
+  padding: 6px 16px;
+}
+
+@media (max-width: 580px) {
+  nav { padding: 15px 20px; }
+  .email-form { flex-direction: column; }
+  .submit-btn { width: 100%; }
+  .steps { grid-template-columns: 1fr; gap: 2px; }
+  .step:first-child { border-radius: 17px 17px 0 0; }
+  .step:last-child  { border-radius: 0 0 17px 17px; }
+  .step-title { min-height: unset; }
+  .site-footer-bar { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="nav-wordmark">
+    <span class="nav-kind">Kind</span><span class="nav-ly">ly</span>
+    <span class="nav-dot"></span>
+  </a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="hero-inner">
+
+    <h1 class="hero-headline">Gifting that<br><em>always lands.</em></h1>
+
+    <p class="hero-pain-para">Last-minute panic. Generic gifts that miss the mark. The blank card stare. The mental list that never ends.</p>
+
+    <p class="hero-solution"><em>Kindly exists so these moments don't have to.</em></p>
+
+    <div class="hero-pills">
+      <span class="hero-pill"><span class="hero-pill-dot"></span>A living, evolving profile of every person you love</span>
+      <span class="hero-pill"><span class="hero-pill-dot"></span>Learns from every conversation, note and photo</span>
+      <span class="hero-pill"><span class="hero-pill-dot"></span>Syncs your calendar — no missed birthdays or occasions</span>
+      <span class="hero-pill"><span class="hero-pill-dot"></span>Rooted in gifting psychology, informed by your choices</span>
+    </div>
+
+    <div class="signup-wrapper" id="signup">
+
+      <!-- Step 1: Email capture — posts directly to Mailchimp -->
+      <div id="step-1">
+        <form
+          action="https://buykindly.us20.list-manage.com/subscribe/post?u=c36330395f55235573c16c524&amp;id=0d0b181ec5&amp;f_id=003f2ceef0"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          onsubmit="handleHeroSubmit(event)"
+        >
+          <div class="email-form">
+            <input class="email-input" type="email" name="EMAIL" id="email-field" placeholder="Your email address" required autocomplete="email">
+            <button class="submit-btn" type="submit">Get early access</button>
+          </div>
+          <!-- Mailchimp honeypot anti-spam field — do not remove -->
+          <div class="mc-hidden" aria-hidden="true">
+            <input type="text" name="b_c36330395f55235573c16c524_0d0b181ec5" tabindex="-1" value="">
+          </div>
+        </form>
+        <p class="privacy-note">
+          <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
+            <path d="M6 1L1.5 3V6.5C1.5 9.26 3.48 11.85 6 12.5C8.52 11.85 10.5 9.26 10.5 6.5V3L6 1Z" stroke="#9B85AA" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M4 6.5L5.5 8L8 5" stroke="#9B85AA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          No spam. One email when we launch. Unsubscribe any time.
+        </p>
+        <p class="hero-origin">Made in the UK &nbsp;·&nbsp; Launching soon</p>
+      </div>
+
+      <!-- Step 2: Validation question -->
+      <div id="step-2">
+        <p class="step2-thanks">You're on the list. ✦</p>
+        <p class="step2-sub"><strong>Early access is yours</strong> — we'll email the moment Kindly opens.<br>One quick question to help us build something that actually works for you:</p>
+        <p class="q-label">What's the hardest part of gifting for you?</p>
+        <div class="options">
+          <button class="opt" type="button" onclick="selectOpt(this)">
+            <div class="opt-icon">🎯</div>
+            <div class="opt-text">
+              <strong>Buying the right thing</strong>
+              <span>I never really know what they'd actually love</span>
+            </div>
+          </button>
+          <button class="opt" type="button" onclick="selectOpt(this)">
+            <div class="opt-icon">📅</div>
+            <div class="opt-text">
+              <strong>Remembering when it is</strong>
+              <span>Occasions creep up and I'm caught off guard every time</span>
+            </div>
+          </button>
+          <button class="opt" type="button" onclick="selectOpt(this)">
+            <div class="opt-icon">✍️</div>
+            <div class="opt-text">
+              <strong>Writing the card or message</strong>
+              <span>I go blank every time I have to put something heartfelt in writing</span>
+            </div>
+          </button>
+          <button class="opt" type="button" onclick="selectOpt(this)">
+            <div class="opt-icon">⏱️</div>
+            <div class="opt-text">
+              <strong>Finding the time to sort it</strong>
+              <span>Life's busy — gifting always falls to the bottom of the list</span>
+            </div>
+          </button>
+          <button class="opt" type="button" onclick="selectOpt(this)">
+            <div class="opt-icon">🤷</div>
+            <div class="opt-text">
+              <strong>Honestly, all of the above</strong>
+              <span>The whole thing stresses me out more than it should</span>
+            </div>
+          </button>
+        </div>
+        <button class="submit-validation" onclick="submitValidation()">That's mine — confirm my early access ✦</button>
+        <span class="skip" onclick="submitValidation()">Skip — just put me on the list</span>
+      </div>
+
+      <!-- Step 3: Confirmation -->
+      <div id="step-3">
+        <div class="confirm-card">
+          <div class="confirm-icon">✦</div>
+          <h2 class="confirm-title">You're in.</h2>
+          <p class="confirm-body">We'll send one email when Kindly opens — your early access spot is reserved. No noise, no newsletter, no spam in between.</p>
+          <div class="access-badge">✦ &nbsp;Early access confirmed</div>
+        </div>
+        <div class="research-nugget">
+          <p class="nugget-label">✦ &nbsp;Did you know?</p>
+          <p class="nugget-text">"Givers judge a gift in the moment. Recipients judge it for years after." Kindly is built around that gap.</p>
+          <p class="nugget-source">Backed by published research in gifting psychology.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how-section">
+  <div class="how-blob-tr"></div>
+  <div class="how-blob-bl"></div>
+  <div class="how-inner">
+    <p class="how-tag">How Kindly works</p>
+    <h2 class="how-heading">Starts simple.<br><em>Gets remarkable.</em></h2>
+
+
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <span class="step-pill">Build</span>
+        <p class="step-title">Tell Kindly about your people</p>
+        <p class="step-body">A quick conversation — not a form. Kindly asks warm, natural questions and builds a rich profile of everyone you buy for. Their interests, their style, their sense of humour. Got a photo of their taste? Share it. Kindly builds a picture as rich as you make it.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <span class="step-pill">Track</span>
+        <p class="step-title">Sync your occasions</p>
+        <p class="step-body">Connect your calendar and contacts. Every birthday, anniversary, and occasion mapped — with a nudge at exactly the right moment. Never caught off guard again. Smart enough not to spam you — fully adjustable, zero duplication.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <span class="step-pill">Discover</span>
+        <p class="step-title">Get ideas that actually fit</p>
+        <p class="step-body">Not generic lists. Gift ideas built from everything Kindly knows about that specific person — their taste, your budget, the occasion. The richer the profile, the better the gift.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <span class="step-pill">Grow</span>
+        <p class="step-title">Gets smarter every time</p>
+        <p class="step-body">Every gift you give teaches Kindly more. Every "loved it" or "missed the mark" — over time, it knows your people almost as well as you do. The more you share, the more Kindly has to work with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Relatable moments -->
+<section class="relatable-section">
+  <div class="relatable-inner">
+    <h2 class="relatable-heading">
+      Kindly is for anyone who's ever thought:<br>
+      <em>"This should be easier by now."</em>
+    </h2>
+
+    <div class="relatable-grid">
+      <div class="rel-item">
+        <span class="rel-icon">📱</span>
+        Anyone who's sat staring at their phone, devoid of ideas — knowing they had thought of the perfect something months ago and it's gone forever
+      </div>
+      <div class="rel-item">
+        <span class="rel-icon">💑</span>
+        Partners who want to stop having the same conversation about who forgot the anniversary
+      </div>
+      <div class="rel-item">
+        <span class="rel-icon">👵</span>
+        Anyone buying for people whose interests are a complete mystery — the uncle who has everything, the teenager you've lost the plot with
+      </div>
+      <div class="rel-item">
+        <span class="rel-icon">👨‍👩‍👧‍👦</span>
+        Parents who know their children deeply but struggle with the stress of translating that into the presents they buy
+      </div>
+      <div class="rel-item">
+        <span class="rel-icon">💼</span>
+        Professionals who care about their people but run out of bandwidth before they run out of people to buy for
+      </div>
+      <div class="rel-item">
+        <span class="rel-icon">🧩</span>
+        People whose brains are brilliant at a thousand things — and reliably terrible at remembering that Max's birthday is in September
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+  <div class="bottom-blob"></div>
+  <div class="bottom-inner">
+    <h2 class="bottom-heading">Ready to give gifts<br><em>that always land?</em></h2>
+    <p class="bottom-sub">Kindly is launching soon in the UK. Join the waitlist for early access — one email, no spam, no noise.</p>
+
+    <!-- Bottom form — also posts to Mailchimp -->
+    <form
+      action="https://buykindly.us20.list-manage.com/subscribe/post?u=c36330395f55235573c16c524&amp;id=0d0b181ec5&amp;f_id=003f2ceef0"
+      method="post"
+      target="_blank"
+      onsubmit="handleBottomSubmit(event)"
+      style="max-width:440px; margin:0 auto 14px;"
+    >
+      <div class="email-form">
+        <input class="email-input" type="email" name="EMAIL" id="bottom-email" placeholder="Your email address" required autocomplete="email">
+        <button class="submit-btn" type="submit">Get early access</button>
+      </div>
+      <!-- Mailchimp honeypot anti-spam field — do not remove -->
+      <div class="mc-hidden" aria-hidden="true">
+        <input type="text" name="b_c36330395f55235573c16c524_0d0b181ec5" tabindex="-1" value="">
+      </div>
+    </form>
+
+    <p class="privacy-note">
+      <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
+        <path d="M6 1L1.5 3V6.5C1.5 9.26 3.48 11.85 6 12.5C8.52 11.85 10.5 9.26 10.5 6.5V3L6 1Z" stroke="#9B85AA" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M4 6.5L5.5 8L8 5" stroke="#9B85AA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      No spam. One email when we launch. Unsubscribe any time.
+    </p>
+  </div>
+
+  <div class="site-footer-bar">
+    <a href="#top" class="site-footer-mark"><span style="color:var(--accent)">Kind</span><span style="color:var(--berry)">ly</span></a>
+    <p class="site-footer-copy">© 2026 Mentat Labs Limited · buykindly.co.uk</p>
+    <div class="site-footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/cdn-cgi/l/email-protection#b3dbd6dfdfdcf3d1c6cad8daddd7dfca9dd0dc9dc6d8">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    });
+  });
+
+  // Hero form — submits to Mailchimp in new tab, shows Step 2
+  function handleHeroSubmit(e) {
+    const email = document.getElementById('email-field').value;
+    if (!email) return;
+    // Let the form submit to Mailchimp naturally (new tab)
+    // Then show Step 2
+    setTimeout(() => {
+      document.getElementById('step-1').classList.add('hidden');
+      const s2 = document.getElementById('step-2');
+      s2.classList.add('show');
+      s2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  // Bottom form — submits to Mailchimp, scrolls up to show confirmation flow
+  function handleBottomSubmit(e) {
+    const val = document.getElementById('bottom-email').value;
+    if (!val) return;
+    // Populate hero form email for consistency
+    document.getElementById('email-field').value = val;
+    setTimeout(() => {
+      document.getElementById('step-1').classList.add('hidden');
+      const s2 = document.getElementById('step-2');
+      s2.classList.add('show');
+      document.getElementById('signup').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  function selectOpt(btn) {
+    document.querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+
+  function submitValidation() {
+    const sel = document.querySelector('.opt.selected');
+    const answer = sel ? sel.querySelector('strong').textContent : 'skipped';
+    // Fire Plausible custom event for validation answer tracking
+    if (window.gtag) {
+      gtag('event', 'validation_answer', { answer: answer });
+    }
+    document.getElementById('step-2').classList.remove('show');
+    document.getElementById('step-2').classList.add('hidden');
+    const s3 = document.getElementById('step-3');
+    s3.classList.add('show');
+    s3.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Scroll animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const siblings = Array.from(el.parentElement.children);
+        const delay = siblings.indexOf(el) * 0.09;
+        el.style.transition = `opacity 0.5s ease ${delay}s, transform 0.5s ease ${delay}s`;
+        el.style.transform = 'translateY(0)';
+        el.style.opacity = '1';
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.rel-item, .step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
