@@ -925,7 +925,7 @@ h1.hero-headline em {
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
-          target="_blank"
+          target="mc-hidden-iframe"
           onsubmit="handleHeroSubmit(event)"
         >
           <div class="email-form">
@@ -1099,7 +1099,7 @@ h1.hero-headline em {
     <form
       action="https://buykindly.us20.list-manage.com/subscribe/post?u=c36330395f55235573c16c524&amp;id=0d0b181ec5&amp;f_id=003f2ceef0"
       method="post"
-      target="_blank"
+      target="mc-hidden-iframe"
       onsubmit="handleBottomSubmit(event)"
       style="max-width:440px; margin:0 auto 14px;"
     >
@@ -1141,12 +1141,15 @@ h1.hero-headline em {
     });
   });
 
-  // Hero form — submits to Mailchimp in new tab, shows Step 2
+  // Hero form — submits to Mailchimp via hidden iframe, shows Step 2
   function handleHeroSubmit(e) {
     const email = document.getElementById('email-field').value;
     if (!email) return;
-    // Let the form submit to Mailchimp naturally (new tab)
-    // Then show Step 2
+    // Fire GA4 email signup event
+    if (window.gtag) {
+      gtag('event', 'email_signup', { location: 'hero' });
+    }
+    // Allow form to submit to hidden iframe, then show Step 2
     setTimeout(() => {
       document.getElementById('step-1').classList.add('hidden');
       const s2 = document.getElementById('step-2');
@@ -1155,10 +1158,14 @@ h1.hero-headline em {
     }, 100);
   }
 
-  // Bottom form — submits to Mailchimp, scrolls up to show confirmation flow
+  // Bottom form — submits to Mailchimp via hidden iframe, shows Step 2
   function handleBottomSubmit(e) {
     const val = document.getElementById('bottom-email').value;
     if (!val) return;
+    // Fire GA4 email signup event
+    if (window.gtag) {
+      gtag('event', 'email_signup', { location: 'bottom_cta' });
+    }
     // Populate hero form email for consistency
     document.getElementById('email-field').value = val;
     setTimeout(() => {
@@ -1209,5 +1216,7 @@ h1.hero-headline em {
     io.observe(el);
   });
 </script>
+<!-- Hidden iframe for Mailchimp form submission — keeps user on page -->
+<iframe name="mc-hidden-iframe" style="display:none;" tabindex="-1"></iframe>
 </body>
 </html>
